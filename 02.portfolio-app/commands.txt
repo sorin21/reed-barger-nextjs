@@ -1,0 +1,19 @@
+1. npm init -y
+2. npm i next react react-dom
+3. Create pages directory
+4. Add in package.json 
+  "scripts": {
+    "dev": "next"
+  },
+  This next script is running a webpack and babel setup. 
+  The result of that is this .next folder. Inside here is all the javascript that we created, that will be compiled and bundled and 
+  all the static assets like images or css files will be served from here, too.
+5. Add inside pages our home page index.js.
+  The pages folder is our routing system. 
+  We don't need to import react in a componet.
+  Next comes with Hot code reloading.
+
+6. Port
+  We can run our app on a diff port, that the default one 3000. In package.json:
+  "dev": "next -p 4000"
+

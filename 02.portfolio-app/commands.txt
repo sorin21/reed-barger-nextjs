@@ -17,3 +17,62 @@
   We can run our app on a diff port, that the default one 3000. In package.json:
   "dev": "next -p 4000"
 
+7. Static folder
+  To add images we create a static folder and add them inside.
+
+8. Link
+  We can create link with
+  import Link from 'next/link';
+  <Link href="/">
+    <a>Go to Home</a>
+  </Link>
+
+  In this case we are using history api.
+
+9. Routing faster
+- you can see a loading icon in the right side of the top meniu, when you click on links
+
+  npm i nprogress
+  https://cdnjs.com/libraries/nprogress
+
+  Add in Layout.js 
+  <Head>
+    <title>Next Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
+  </Head>
+
+10. Custom page 
+  Add in pages _document.js. 
+  In this we have direct access to html document, where we can work with the head or things in the body.
+  Inside we cand add a title, title has to be added in pages or component, but we can add a <link>.
+  Also we can add meta tags, usefull for SEO.
+
+  static getInitialProps() {
+    fetch('https://api.github.com/users/sorin21')
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+  }
+
+  getInitialProps runs out fetch call on the server, so its trying to get data as soon as possible.
+
+  npm i isomorphic-unfetch
+
+11. Get Errors
+  If the user goes to a page that doesn't exist we need an error page to show this.
+  Create inside pages _error.js file.
+
+  Customize the _error.js page to deal with fetch calls as well.
+  We can check if we get an error status code inside about.js file.
+
+  const statusCode = res.status > 200 ? res.status : false;
+
+12. URL query params
+  We can get query params from an url: 
+  http://localhost:3000/post?title=React
+
+  like this:
+  <h1>{props.url.query.title}</h1>
+
+  

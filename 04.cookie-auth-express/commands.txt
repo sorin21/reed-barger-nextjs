@@ -1,0 +1,12 @@
+1. npm init -y
+2. npm i next react react-dom express
+ Will running an express server combined with nextjs
+
+3. Create a server.js file.
+4. Install nodemon
+  npm i --save-dev nodemon
+  And modify the package.json:
+5. Create login page login.js
+6. Create lib folder for all utility files
+7. Install axios
+  npm i axios

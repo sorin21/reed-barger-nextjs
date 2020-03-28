@@ -16,7 +16,7 @@ const Layout = ({ children, title }) => {
   return (
     <div className="root">
       <Head>
-        <title>Next Portfolio</title>
+        <title>{title}</title>
 
       </Head>
       <header>
@@ -28,8 +28,7 @@ const Layout = ({ children, title }) => {
       <h1>{title}</h1>
       {children}
       <footer>&copy; {new Date().getFullYear()}</footer>
-      <style jsx>
-        {`
+      <style jsx>{`
         .root {
           display: flex;
           justify-content: center;

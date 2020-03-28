@@ -43,7 +43,8 @@ class About extends Component {
     }
     return (
       <Layout title="About">
-        <p>Be a better programmer</p>
+        <p>Be a better Javascript programmer</p>
+        <img src="/images/javascript.png" alt="Javascript" height="200px" />
         <p>Name: {user.login}</p>
 
         <img src={user.avatar_url} height="200px" alt="Me" />

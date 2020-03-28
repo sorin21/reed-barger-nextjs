@@ -1,0 +1,81 @@
+1. npm init -y
+2. npm i next react react-dom
+3. Create pages and components folders
+  Add index.js, our home inside pages.
+  
+4. npm i isomorphic-unfetch
+
+5. We create in components Layout.js and here we include the {children}
+  Now we use Layout in index.js to wrap it.
+
+6. Set the title and description dinamically for any page that we are on.
+  Inside index.js send title:
+    <Layout title="Hacker NextJS">
+      <StoryList stories={stories} />
+    </Layout>
+  
+  And inside Layout.js set it:
+    <Head>
+      <title>{title}</title>
+    </Head>
+
+7. Context 
+  getinitalProps comes with a context object, as prop:
+    static async getInitialProps(context) {}.
+  Usually getInitialProps give us data about out server setup. So we can desctruct context object to get 
+  request we are making, as well as response from the server, and query from url.
+
+8. Progresive web app means that we can take our app and deliver it to mobile devices in a way that it behaves almost identical to a native app that you can download from App Store and includes featurea like you can add it to the home screen and be able to run off line.
+  1. First step is to add this website to our devices home screen using a file called  web app manifest. 
+    This file tells to the browser that the user is running our app how the app needs to be displayed, to be sure that is behaive like a mobile app.
+    Search on google: web app manifest generator and we go to 
+    https://tomitm.github.io/appmanifest/
+
+    Search for a image Hacker News logo 512x512
+
+    Iside public folder, create a static folder, and inside a file called manifest.json. Paste here the object copyied from the above link.
+    Add inside pages a file called _document.js
+
+    To generate icons 192x192 we go to this website, and upload here the image 512x512 from above:
+    https://app-manifest.firebaseapp.com/
+
+    A service worker is a type of web worker. It's essentially a JavaScript file that runs separately from the main browser thread, intercepting network requests, caching or retrieving resources from the cache, and delivering push messages.
+    https://developers.google.com/web/ilt/pwa/introduction-to-service-worker
+
+    If there is no internet let the user to use our app. In this direction we install a webpack plugin that automatically makes for us a service worker:
+
+    npm i sw-precache-webpack-plugin
+
+    Service workers exists only in the browser, so we use cdm(), in index.js, to handle this registration. 
+    We can check in browser console navigator.serviceWorker prop.
+
+    We have to let next to know about .register('/service-worker.js'). We have to make our server to handle this service-worker.js file.
+    In this situation we need to creat our custom server, server.js file.
+
+    To run our new server.js we need to change in package.json our dev:
+    "dev": "node server.js"
+
+    Service worker work only in production env, in scripts we add more:
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "next build"
+
+    This is the way of deploying. 
+    1.Now first we run:
+      npm run build
+
+    We need to install: 
+      npm install -g win-node-env
+    to have the next command.
+
+    2. Start the app
+      npm start
+
+    $ git init
+    $ heroku git:remote -a hacker-nextjs-ro
+    Deploy your application
+    Commit your code to the repository and deploy it to Heroku using Git.
+
+    $ git add .
+    $ git commit -am "make it better"
+    $ git push heroku master

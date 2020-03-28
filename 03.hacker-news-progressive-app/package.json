@@ -2,11 +2,22 @@
   "name": "03.hacker-news-progressive-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "heroku-postbuild": "next build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.3.1",
+    "nodemon": "^2.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sw-precache-webpack-plugin": "^1.0.0"
+  }
 }

@@ -46,6 +46,7 @@
   In this we have direct access to html document, where we can work with the head or things in the body.
   Inside we cand add a title, title has to be added in pages or component, but we can add a <link>.
   Also we can add meta tags, usefull for SEO.
+  This _document page is executed on on server side.
 
   static getInitialProps() {
     fetch('https://api.github.com/users/sorin21')

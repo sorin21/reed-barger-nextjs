@@ -10,3 +10,15 @@
 6. Create lib folder for all utility files
 7. Install axios
   npm i axios
+
+8. To authenticate we use a mockup from:
+  https://jsonplaceholder.typicode.com/users
+
+9. To parse a cookie we need to install 
+  npm i cookie-parser
+
+  Separate authenticate user from non authenticate user using cookie.
+  Cookie will be automatically put in headers, after login.
+
+10. Create _document.js to have access, to have global data acros pages.
+  Because _document page is executed only on server side we can reed its signedCookie. With this we persist the global data.
